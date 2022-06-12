@@ -1,0 +1,47 @@
+logLevel = 'info' # fatal/error/warn/info/debug/trace
+
+
+[redis]
+mode = 'standalone' # standalone or cluster
+host = 'localhost:6379'
+password = ''
+
+
+[center]
+localLogin = true
+host = '127.0.0.1'
+port = 2001
+gmPort = 9001
+
+
+[db]
+host = '127.0.0.1'
+port = 7001
+
+
+[lobby]
+serverId = 15088
+serverName = '斗地主'
+host = '127.0.0.1'
+port = 10001
+
+
+[game]
+id = 1
+host = '127.0.0.1'
+port = 6001
+shuffleMode = 1 # 0-normal, 1-random
+free = true
+robot = true
+debug = true
+
+
+[gate]
+id = 1
+host = '127.0.0.1'
+port = 8001
+
+
+[login]
+host = '127.0.0.1'
+port = 5001
