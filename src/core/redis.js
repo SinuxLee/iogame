@@ -1,26 +1,27 @@
-const Redis = require("ioredis");
+const Redis = require('ioredis')
+const log = require('../core/logger')
 
-function createRedis(host, port, isCluster) {
+function createRedis (host, port, isCluster) {
   if (isCluster) {
     return new Redis.Cluster([
       {
-        host: "127.0.0.1",
-        port: 7000,
+        host: '127.0.0.1',
+        port: 7000
       },
       {
-        host: "127.0.0.1",
-        port: 7001,
+        host: '127.0.0.1',
+        port: 7001
       },
       {
-        host: "127.0.0.1",
-        port: 7002,
-      },
-    ]);
+        host: '127.0.0.1',
+        port: 7002
+      }
+    ])
   } else {
     return new Redis({
       host,
-      port,
-    });
+      port
+    })
   }
 }
 
@@ -34,19 +35,20 @@ if (require.main === module) {
   //   else log.info(res);
   // });
 
-  const Redis = require("ioredis");
+  const Redis = require('ioredis')
 
   const cluster = new Redis.Cluster([
     {
       port: 7000,
-      host: "127.0.0.1",
+      host: '127.0.0.1'
     }
-  ]);
+  ])
 
-  cluster.set("foo", "bar");
-  cluster.get("foo", (err, res) => {
-    console.log(res);
-  });
+  cluster.set('foo', 'bar')
+  cluster.get('foo', (err, res) => {
+    if (err) log.error(err)
+    console.log(res)
+  })
 }
 
-module.exports = createRedis;
+module.exports = createRedis
