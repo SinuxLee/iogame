@@ -1,4 +1,4 @@
-logLevel = 'info' # fatal/error/warn/info/debug/trace
+logLevel = 'trace' # fatal/error/warn/info/debug/trace
 
 
 [redis]

@@ -18,11 +18,13 @@ const log = caller(pino({
 if (require.main === module) {
   log.level = 'debug'
 
-  log.trace('trace log')
-  log.debug('debug log %s %s %s', 'with', 'a', 'message')
-  log.info({ hello: 'world' }, 'info log')
-  log.error('error log')
-  log.fatal('fatal log')
+  setInterval(()=>{
+    log.trace('trace log')
+    log.debug('debug log %s %s %s', 'with', 'a', 'message')
+    log.info({ hello: 'world' }, 'info log')
+    log.error('error log')
+    log.fatal('fatal log')
+  }, 1000*3)
 }
 
 module.exports = log

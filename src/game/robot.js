@@ -1,6 +1,21 @@
 const { parse } = require('csv-parse/sync')
 const fs = require('fs')
 const log = require('../core/logger')
+const Player = require('./player')
+
+/**
+ * 对局中的机器人
+ */
+class Robot extends Player{
+  #ridx = 0; // 机器人编号
+
+  constructor(){
+      super()
+  }
+
+  isRobot(){return true}
+}
+
 
 class RobotManager {
   constructor (file) {

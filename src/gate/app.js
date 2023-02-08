@@ -19,12 +19,15 @@ function main () {
   g.start()
 }
 
-process.on('uncaughtException', function (err) {
-  log.fatal(err, 'uncaughtException')
-})
-
-process.on('unhandledRejection', (reason, p) => {
-  log.fatal({ rejection: p, reason }, 'unhandledRejection')
-})
+// debug 模式让未捕捉的异常暴露出来
+if(process.env.NODE_ENV === 'production'){
+  process.on('uncaughtException', function (err) {
+    log.fatal(err, 'uncaughtException')
+  })
+  
+  process.on('unhandledRejection', (reason, p) => {
+    log.fatal({ rejection: p, reason }, 'unhandledRejection')
+  })
+}
 
 main()
