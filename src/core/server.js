@@ -111,6 +111,8 @@ class MixinServer{
     //     return
     // }
 
+    // 服务器白名单 / 停服公告
+
     log.debug({headers,query,auth})
     next()
   }

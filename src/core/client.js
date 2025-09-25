@@ -103,7 +103,7 @@ class IOClient{
       });
 
       this.#socket.on('connect_error', async(err)=>{
-        log.error(err.message)
+        log.error(err.message,err?.data)
       })
 
       this.#socket.on('connect_timeout', async()=>{})
